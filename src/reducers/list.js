@@ -26,10 +26,49 @@ export const listReducer=(lists=[], action)=>{
             });
             return updatedLists;
         }
-        case "CHANGE_BOARD_ID":{}
-        case "REMOVE_LIST":{}
-        case "ADD_TASK_TO_A_LIST":{}
-        case "REMOVE_TASK_FROM_A_LIST":{}
+        case "CHANGE_BOARD_ID":{
+            const updatedLists=lists.map((item)=>{
+                if(item.id=action.payload.id){
+                    return{
+                        ...item,
+                        boardId: action.payload.boardId,
+                    };
+                }
+                return item;
+            });
+            return updatedLists;
+        }
+        case "REMOVE_LIST":{
+           return lists.filter((item)=>item.id!==action.payload.id);
+        }
+        case "ADD_TASK_TO_A_LIST":{
+            const updatedLists=lists.map((item)=>{
+                if(item.id===action.payload.id){
+                    return{
+                        ...item,
+                        tasks: [...item.tasks, action.payload.taskId],
+                    };
+                }
+                return item;
+
+            });
+            return updatedLists;
+        }
+        case "REMOVE_TASK_FROM_A_LIST":{
+
+            const updatedLists= lists.map((item)=>{
+                if(item.id===action.payload.id){
+                    return{
+                        ...item,
+                        tasks: item.tasks.filter(
+                            (taskId)=>taskId!==action.payload.taskId,
+                        ),
+                    };
+                }
+                return item;
+            });
+            return updatedLists;
+        }
         default:{
             return lists;
         }
