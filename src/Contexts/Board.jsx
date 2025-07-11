@@ -9,7 +9,7 @@ const BoardProvider=({children})=>{
         <BoardContext.Provider value={{boards, dispatchBoardActions}}>
             {children}
         </BoardContext.Provider>
-    )
+    );
 
 };
 
