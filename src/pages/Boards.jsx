@@ -1,10 +1,16 @@
 import React from "react";
+import BoardCreatingForm from "../Components/BoardCreatingForm";
+import BoardList from "../Components/BoardList";
+
 
 const Boards=()=>{
     return (
-        <div>Board</div>
-    )
+        <div>
+            <BoardCreatingForm />
+            <BoardList />
+        </div>
+    );
 
-}
+};
 
-export default Boards
+export default Boards;

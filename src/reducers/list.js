@@ -15,7 +15,7 @@ export const listReducer=(lists=[], action)=>{
         case "UPDATE_LIST_NAME":{
 
             const updatedLists= lists.map((item)=>{
-                if(item.id=action.payload.id){
+                if(item.id===action.payload.id){
                     return{
                         ...item,
                         title: action.payload.title
@@ -28,7 +28,7 @@ export const listReducer=(lists=[], action)=>{
         }
         case "CHANGE_BOARD_ID":{
             const updatedLists=lists.map((item)=>{
-                if(item.id=action.payload.id){
+                if(item.id===action.payload.id){
                     return{
                         ...item,
                         boardId: action.payload.boardId,
@@ -39,7 +39,7 @@ export const listReducer=(lists=[], action)=>{
             return updatedLists;
         }
         case "REMOVE_LIST":{
-           return lists.filter((item)=>item.id!==action.payload.id);
+           return lists.filter((list)=>list.id!==action.payload.id);
         }
         case "ADD_TASK_TO_A_LIST":{
             const updatedLists=lists.map((item)=>{
