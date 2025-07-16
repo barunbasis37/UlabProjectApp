@@ -14,7 +14,7 @@ const BoardCreatingForm = () => {
     };
 
     return (
-        <div className='allign-center m-top-md'>
+        <div className='center d-flex justify-content-center align-items-center m-5'>
         <form onSubmit={submitHandler} className="w-50">
             {/* Add your form fields here */}
             <h2>Create a New Board</h2>

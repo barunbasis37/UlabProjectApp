@@ -7,7 +7,7 @@ export const taskReducer=(tasks=[], action)=>{
                 listId: action.payload.listId,
                 boardId: action.payload.boardId,
             };
-            return {...tasks, newTask};
+            return [...tasks, newTask];
         }
         case "UPDATE_TASK_TITLE":{
             const updateTasks=tasks.map((item)=>{

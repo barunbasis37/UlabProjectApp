@@ -41,7 +41,7 @@ export const listReducer=(lists=[], action)=>{
         case "REMOVE_LIST":{
            return lists.filter((list)=>list.id!==action.payload.id);
         }
-        case "ADD_TASK_TO_A_LIST":{
+        case "ADD_TASK_ID_TO_A_LIST":{
             const updatedLists=lists.map((item)=>{
                 if(item.id===action.payload.id){
                     return{

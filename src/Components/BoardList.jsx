@@ -6,7 +6,7 @@ const BoardList = () => {
     const {boards}=useContext(BoardContext);
     console.log(boards);
     return (
-        <div className='flex-wrap d-flex m-top-md justify-content-around'>
+        <div className='justify-content-center d-flex flex-wrap board-list'>
             {boards.map((board) => (
                 <Link key={board.id} to={`/boards/${board.id}`}>
                     <BoardItem board={board}/>

@@ -18,8 +18,8 @@ const removehandeler = (e) => {
 
 
     return (
-        <div className='board-box d-flex flex-direction-column'>
-            <div className='d-flex justify-content-between'>
+        <div className='board-item d-flex flex-column justify-content-between align-items-center m-2 p-3'>
+            <div className='col-12 d-flex justify-content-between align-items-center'>
                 <h4>{board.title}</h4>
                 <p onClick={removehandeler}>x</p>
             </div>
