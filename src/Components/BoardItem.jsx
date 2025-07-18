@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {BoardContext} from '../Contexts/Board';
 import {ListContext} from '../Contexts/List';
-import { TaskContext } from './../Contexts/Task';
+import { TaskContext } from '../Contexts/Task';
 
 const BoardItem = ({board}) => {
 
@@ -12,8 +12,13 @@ const removehandeler = (e) => {
     e.preventDefault();
     e.stopPropagation();
     dispatchBoardActions({type: 'REMOVE_BOARD', payload: board.id});
-    dispatchListActions({type: 'REMOVE_LISTS', payload: board.id}); 
-    dispatchTaskActions({type: 'REMOVE_TASKS', payload: board.id});
+    board.lists.forEach((listId) => {
+        dispatchListActions({type: 'REMOVE_LIST', payload: listId});
+    });
+    board.tasks.forEach((taskId) => {
+        dispatchTaskActions({type: 'REMOVE_TASK', payload: taskId});
+    });
+    
 };
 
 

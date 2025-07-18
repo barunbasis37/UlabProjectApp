@@ -2,9 +2,9 @@ import React from 'react';
 
 const AddItemForm = ({
     listForm,
-    submitHandeler,
+    submitHandler,
     title,
-    onChangeHandeler,
+    onChangeHandler,
     setEditMode,
 }) => {    
     return (
@@ -13,18 +13,18 @@ const AddItemForm = ({
                 <form>
                     <textarea
                         value={title}
-                        onChange={onChangeHandeler}
+                        onChange={onChangeHandler}
                         cols="30"
                         row="2"
-                        className='form-textarea'
+                        className="form-textarea"
                     ></textarea>
                 </form>
             </div>
             <div className='button-container'>
-                <button className='btn btn-primary' onClick={submitHandeler}>
-                    {listForm ? 'Add List' : 'Add Task'}
+                <button className='btn btn-primary' onClick={submitHandler}>
+                    {listForm ? "Add List" : "Add/Update Task"}
                 </button>
-                <p className='"add-item-icon' onClick={()=>setEditMode(false)}>
+                <p className='add-item-icon' onClick={()=>setEditMode(false)}>
                     x
                 </p>
             </div>  

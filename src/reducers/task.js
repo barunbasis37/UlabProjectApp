@@ -26,12 +26,12 @@ export const taskReducer=(tasks=[], action)=>{
             return tasks.filter(tskId=>tskId!==action.payload.id);
 
         }
-        case "CHANGE_LIST_ID_OF_A_ATASK":{
+        case "CHANGE_LIST_ID_OF_A_TASK":{
             const updateTasks= tasks.map((item)=>{
                 if(item.id===action.payload.id){
                     return{
                         ...item,
-                        taskId: action.payload.taskId,
+                        listId: action.payload.listId,
                     };
                 }
                 return item;
@@ -39,7 +39,7 @@ export const taskReducer=(tasks=[], action)=>{
             return updateTasks;
 
         }
-        case "CHANGE_VOARD_ID_OF_A_ATASK":{
+        case "CHANGE_BOARD_ID_OF_A_TASK":{
             const updateTasks= tasks.map((item)=>{
                 if(item.id===action.payload.id){
                     return{

@@ -7,7 +7,7 @@ import AddItem from './AddItem';
 import AddItemForm from './AddItemForm';
 
 const TaskList = ({list}) => {
-    console.log("list", list);
+    console.log(list);
     const [taskTitle, setTaskTitle] = useState("");
     const [editMode, setEditMode] = useState(false);
 
@@ -32,8 +32,8 @@ const TaskList = ({list}) => {
             type: "ADD_TASK_ID_TO_A_LIST",
             payload: {
                 id: list.id,
-                taskId: taskId
-            }
+                taskId: taskId,
+            },
         });
 
         dispatchBoardActions({
@@ -80,13 +80,11 @@ console.log("list", list.tasks);
             <p onClick={removeHandler} className='add-item-icon'>
                 X
             </p>
-            {list.tasks}
-        </div>
-       {list.tasks
-        .map((item)=>tasks.find((ele)=> ele.id===item))
-        .map((task)=>(
-        <li key={task.id}>{task.title}</li>
-        ))}        
+           {list.tasks
+                .map((item)=>tasks.find((ele)=> ele.id===item))
+                .map((task)=>(
+                <li key={task.id}>{task.title}</li>
+                ))}        
 
             {editMode === false ? (
                 <AddItem listAddItem={false} setEditMode={setEditMode} />
@@ -98,7 +96,9 @@ console.log("list", list.tasks);
                     setEditMode={setEditMode} 
                     submitHandler={submitHandler}
                 />
-            )}
+            )};
+        </div>
+       
 
         </div>
     );

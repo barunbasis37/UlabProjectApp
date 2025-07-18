@@ -19,7 +19,9 @@ const BoardCreatingForm = () => {
             {/* Add your form fields here */}
             <h2>Create a New Board</h2>
             <input type="text" placeholder="Board Name" className="form-control mb-2"
-            value={boardTitle} onChange={(e)=>setBoardTitle(e.target.value)} />
+            value={boardTitle} 
+            onChange={(e)=>setBoardTitle(e.target.value)} 
+            />
             <button type="submit" className="btn btn-primary w-100">Create Board</button>
         </form>
         </div>
