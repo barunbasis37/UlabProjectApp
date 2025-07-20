@@ -53,7 +53,7 @@ const TaskCard = ({task}) => {
         <div>
             { editMode===false ? 
             (
-                <div onClick={()=>setEditMode(true)} className="taskcard">
+                <div onClick={()=>{setTaskTitle(task.title); setEditMode(true); }}  className="taskcard">
                     <p>{task.title}</p>
                     <p onClick={renmoveHandler} className='add-item-icon'>X</p>
                 </div>
