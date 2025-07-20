@@ -23,7 +23,7 @@ export const taskReducer=(tasks=[], action)=>{
 
         }
         case "REMOVE_TASK":{
-            return tasks.filter(tskId=>tskId!==action.payload.id);
+            return tasks.filter(taskId=>taskId!==action.payload.id);
 
         }
         case "CHANGE_LIST_ID_OF_A_TASK":{

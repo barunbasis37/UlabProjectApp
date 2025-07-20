@@ -5,7 +5,7 @@ import{ListContext} from '../Contexts/List';
 import { BoardContext } from '../Contexts/Board';
 import AddItemForm from './AddItemForm';
 
-const TaskCard = (task) => {
+const TaskCard = ({task}) => {
 
     const [editMode, setEditMode] = useState(false);
     const [taskTitle, setTaskTitle] = useState(""); 

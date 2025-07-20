@@ -46,7 +46,7 @@ export const listReducer=(lists=[], action)=>{
                 if(item.id===action.payload.id){
                     return{
                         ...item,
-                        tasks: [...item.tasks, action.payload.taskId],
+                        tasks: [...(item.tasks || []), action.payload.taskId],
                     };
                 }
                 return item;

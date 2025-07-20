@@ -82,10 +82,10 @@ console.log("list", list.tasks);
                 X
             </p>
            {Array.isArray(list?.tasks) &&
-  list.tasks.map((item) => {
-    const task = tasks.find((ele) => ele.id === item);
-    return task ? <TaskCard key={task.id} task={task}/> : null;
-  })}       
+            list.tasks.map((item) => {
+                const task = tasks.find((ele) => ele.id === item);
+                return task ? <TaskCard key={task.id} task={task}/> : null;
+            })}       
 
             {editMode === false ? (
                 <AddItem listAddItem={false} setEditMode={setEditMode} />
