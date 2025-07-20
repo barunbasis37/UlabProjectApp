@@ -5,6 +5,7 @@ import { TaskContext } from '../Contexts/Task';
 
 import AddItem from './AddItem';
 import AddItemForm from './AddItemForm';
+import TaskCard from './TaskCard';
 
 const TaskList = ({list}) => {
     console.log(list);
@@ -80,11 +81,11 @@ console.log("list", list.tasks);
             <p onClick={removeHandler} className='add-item-icon'>
                 X
             </p>
-           {list.tasks
-                .map((item)=>tasks.find((ele)=> ele.id===item))
-                .map((task)=>(
-                <li key={task.id}>{task.title}</li>
-                ))}        
+           {Array.isArray(list?.tasks) &&
+  list.tasks.map((item) => {
+    const task = tasks.find((ele) => ele.id === item);
+    return task ? <TaskCard key={task.id} task={task}/> : null;
+  })}       
 
             {editMode === false ? (
                 <AddItem listAddItem={false} setEditMode={setEditMode} />
@@ -96,7 +97,7 @@ console.log("list", list.tasks);
                     setEditMode={setEditMode} 
                     submitHandler={submitHandler}
                 />
-            )};
+            )}
         </div>
        
 
